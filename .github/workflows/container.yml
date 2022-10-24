@@ -20,5 +20,7 @@ jobs:
         run: squid
       - name: ps
         run: ps
+      - name: config
+        run: cat /etc/squid/squid.conf
       - name: curl
         run: curl  -I http://localhost:3128 
