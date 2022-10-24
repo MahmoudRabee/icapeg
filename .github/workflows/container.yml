@@ -12,9 +12,10 @@ jobs:
       image: shereenfarag/alpine-squid-proxy:squid5
       ports:
         - 8081
+      options: --cpus 1
     steps:
-      - name: docekeor ps 
-        run: docker ps
+      - name: sh ls
+        run: sh ls
       - name: curl
         run: curl  -I http://localhost:8081
       - name: ps
