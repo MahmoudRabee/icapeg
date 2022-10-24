@@ -19,4 +19,4 @@ jobs:
 #       - name: curl
 #         run: curl  -I http://localhost:8081
       - name: squid
-        run: ps squid
+        run: squid
