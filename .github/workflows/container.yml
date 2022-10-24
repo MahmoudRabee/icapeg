@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: shereenfarag/alpine-squid-proxy:squid5
+      ports:
+        - 8081
+    steps:
+      - name: Check for dockerenv file
+        run: (ls  && echo Found files) || (echo No files)
