@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: .s
         run: ls
-      - name: curl
-        run: curl  -I http://localhost:8081
+#       - name: curl
+#         run: curl  -I http://localhost:8081
       - name: squid
         run: ps squid
