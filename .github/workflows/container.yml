@@ -13,9 +13,9 @@ jobs:
       ports:
         - 8081
     steps:
-      - name: ls
-        run: ls
-      - name: pwd
-        run: pwd
+      - name: docekeor ps 
+        run: sudo docker ps
+      - name: curl
+        run: curl  -I http://localhost:8081
       - name: ps
-        run: ps
+        run: ps aux
