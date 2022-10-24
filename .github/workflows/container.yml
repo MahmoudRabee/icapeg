@@ -14,4 +14,4 @@ jobs:
         - 8081
     steps:
       - name: Check for dockerenv file
-        run: (ls  && echo Found files) || (echo No files)
+        run: (echo $(ls) || (echo No files)
