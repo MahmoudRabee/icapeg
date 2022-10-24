@@ -14,9 +14,9 @@ jobs:
         - 8081
       options: --cpus 1
     steps:
-      - name: sh ls
-        run: sh ls
+      - name: .s
+        run: ls
       - name: curl
         run: curl  -I http://localhost:8081
-      - name: ps
-        run: ps aux
+      - name: squid
+        run: ps squid
