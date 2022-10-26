@@ -59,7 +59,7 @@ jobs:
 #         run: python -c "import sys; print(sys.version)"
  
       - name: which python
-        run: which python
+        run: whereis python
           
       - name: download icapeg files
         uses: actions/download-artifact@v3
