@@ -25,4 +25,4 @@ jobs:
       - name: curl
         run: curl  -I http://localhost:3128 
       - name: uname
-        run: uname
+        run: uname -a
