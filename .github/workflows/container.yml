@@ -80,4 +80,6 @@ jobs:
         run: curl  -I http://localhost:3128 
 
       - name: Test 
-        run: ./testing/test_with_squid.py
+        run: |
+            chmod +x testing/test_with_squid.py
+            ./testing/test_with_squid.py
