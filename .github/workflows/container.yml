@@ -24,3 +24,5 @@ jobs:
         run: cat /etc/squid/squid.conf
       - name: curl
         run: curl  -I http://localhost:3128 
+      - name: uname
+        run: uname
