@@ -6,15 +6,58 @@ on:
     branches:
     - master
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+
+    - name: Build
+      run: |
+        sudo apt-get update
+        sudo apt-get install c-icap
+        go build .
+
+    - name: publish icap artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: icapeg
+        path: |
+          icapeg
+          config.toml
+          ansible/squid.conf
+          testing/test_with_squid.py 
+       
   squid_5-4:
     runs-on: ubuntu-latest
+    needs: build
     container:
       image: shereenfarag/alpine-squid-proxy:squid5
     steps:
-      - name: .s
-        run: ls
+    
+      - name: Setup Python
+        uses: actions/setup-python@v4.1.0
+
+      - name: setup pip modules
+        run: pip install toml
+        
+      - name: download icapeg files
+        uses: actions/download-artifact@v3
+        with:
+         name: my-artifact
+         
+      - name: move config file 
+        run: mv squid.conf /etc/squid/squid.conf
+        
       - name: Start  squid proxy
         run: squid
+        
       - name: curl
         run: curl  -I http://localhost:3128 
 
+      - name: Test 
+        run: python3 ./test_with_squid.py
