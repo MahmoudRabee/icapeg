@@ -80,4 +80,4 @@ jobs:
         run: curl  -I http://localhost:3128 
 
       - name: Test 
-        run: ls /__t/Python/3.10.8/x64/bin/
+        run: ln /usr/bin/python3 /__t/Python/3.10.8/x64/bin/python3
