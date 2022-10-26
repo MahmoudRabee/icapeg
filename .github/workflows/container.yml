@@ -39,8 +39,8 @@ jobs:
       image: shereenfarag/alpine-squid-proxy:squid5
     steps:
     
-      - name: Setup Python
-        uses: actions/setup-python@v4.1.0
+#       - name: Setup Python
+#         uses: actions/setup-python@v4.1.0
 
 #       - name: setup pip modules
 #         run: pip install toml
