@@ -48,7 +48,7 @@ jobs:
       - name: download icapeg files
         uses: actions/download-artifact@v3
         with:
-         name: my-artifact
+         name: icapeg
          
       - name: move config file 
         run: mv squid.conf /etc/squid/squid.conf
