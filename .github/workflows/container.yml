@@ -73,9 +73,10 @@ jobs:
       - name: Start  squid proxy
         run: squid
         
-      - name: uname -a 
-        run: uname -a
-        
+      - name: install python
+        run: apt install python3
+      - name: which python
+        run: which python3.10
       - name: curl
         run: curl  -I http://localhost:3128 
 
