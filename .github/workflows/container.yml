@@ -6,13 +6,10 @@ on:
     branches:
     - master
 jobs:
-  container-test-job:
+  squid_5-4:
     runs-on: ubuntu-latest
     container:
       image: shereenfarag/alpine-squid-proxy:squid5
-      ports:
-        - 8081
-      options: --cpus 1
     steps:
       - name: .s
         run: ls
