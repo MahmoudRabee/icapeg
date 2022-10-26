@@ -50,6 +50,8 @@ jobs:
         with:
          name: icapeg
          
+      - name: config
+        run: cat /etc/squid/squid.conf
       - name: move config file 
         run: mv squid.conf /etc/squid/squid.conf
         
