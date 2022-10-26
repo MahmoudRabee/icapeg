@@ -53,7 +53,7 @@ jobs:
       - name: config
         run: cat /etc/squid/squid.conf
       - name: move config file 
-        run: mv squid.conf /etc/squid/squid.conf
+        run: mv squid.conf /etc/squid/
         
       - name: Start  squid proxy
         run: squid
