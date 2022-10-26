@@ -59,7 +59,7 @@ jobs:
         run: ls icapeg
 
       - name: move config file 
-        run: mv squid.conf /etc/squid/
+        run: mv ansible/squid.conf /etc/squid/squid.conf
         
       - name: Start  squid proxy
         run: squid
@@ -68,4 +68,4 @@ jobs:
         run: curl  -I http://localhost:3128 
 
       - name: Test 
-        run: python3 ./test_with_squid.py
+        run: python3 ./testing/test_with_squid.py
