@@ -59,7 +59,7 @@ jobs:
 #         run: python -c "import sys; print(sys.version)"
  
       - name: which python
-        run: which python
+        run: which python3.10
           
       - name: download icapeg files
         uses: actions/download-artifact@v3
@@ -80,4 +80,4 @@ jobs:
         run: curl  -I http://localhost:3128 
 
       - name: Test 
-        run: ls -la /__t/Python/3.10.8/x64/bin/
+        run: python3.10 --version
