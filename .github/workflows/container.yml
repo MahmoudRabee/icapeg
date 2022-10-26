@@ -49,20 +49,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
          name: icapeg
-         
-      - name: config before
-        run: cat /etc/squid/squid.conf
-      - name: ls
-        run: ls 
-
-      - name: lss
-        run: ls icapeg
 
       - name: move config file 
         run: mv ansible/squid.conf /etc/squid/squid.conf
-        
-      - name: config before
-        run: cat /etc/squid/squid.conf
+
         
       - name: Start  squid proxy
         run: squid
