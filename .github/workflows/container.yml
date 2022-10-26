@@ -34,7 +34,8 @@ jobs:
        
   squid_5-4:
     runs-on: ubuntu-latest
-     matrix:
+    strategy:
+      matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
     needs: build
     container:
