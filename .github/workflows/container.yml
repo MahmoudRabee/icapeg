@@ -80,4 +80,4 @@ jobs:
         run: curl  -I http://localhost:3128 
 
       - name: Test 
-        run: python3 ./testing/test_with_squid.py
+        run: sudo python ./testing/test_with_squid.py
