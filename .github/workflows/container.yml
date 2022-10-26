@@ -34,9 +34,7 @@ jobs:
        
   squid_5-4:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+
     needs: build
     container:
       image: shereenfarag/alpine-squid-proxy:squid5
@@ -48,10 +46,10 @@ jobs:
 #       - name: setup pip modules
 #         run: pip install toml
         
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.10
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
