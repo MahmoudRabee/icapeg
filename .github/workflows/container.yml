@@ -74,7 +74,7 @@ jobs:
         run: squid
         
       - name: install python
-        run: apt install python3
+        run: pkg install python3
       - name: which python
         run: which python3.10
       - name: curl
