@@ -79,5 +79,5 @@ jobs:
       - name: curl
         run: curl  -I http://localhost:3128 
 
-#       - name: Test 
-#         run: python3 ./testing/test_with_squid.py
+      - name: Test 
+        run: python ./testing/test_with_squid.py
