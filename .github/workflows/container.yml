@@ -52,6 +52,12 @@ jobs:
          
       - name: config
         run: cat /etc/squid/squid.conf
+      - name: ls
+        run: ls 
+
+      - name: lss
+        run: ls icapeg
+
       - name: move config file 
         run: mv squid.conf /etc/squid/
         
