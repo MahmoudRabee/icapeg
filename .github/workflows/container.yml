@@ -74,8 +74,8 @@ jobs:
         run: squid
         
       - name: Install xmllint
-        run: echo $$
-        shell: bash
+        run: print("aa")
+        shell: python
       - name: curl
         run: curl  -I http://localhost:3128 
 
