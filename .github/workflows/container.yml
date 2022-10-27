@@ -74,7 +74,9 @@ jobs:
 #         run: squid
 
       - name: run squid 
-        run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
+        run : |
+          docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
+          sudo docker exec -d squid5_proxy squid
 
 
       - name: curl
