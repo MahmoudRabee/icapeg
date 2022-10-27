@@ -75,6 +75,10 @@ jobs:
 
       - name: run squid container
         run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
+        
+      - name: copy squid config file 
+        run : docker cp ansible/squid.conf squid5_proxy:/etc/squid/
+          
           
       - name: start squid 
         run : docker exec squid5_proxy squid
