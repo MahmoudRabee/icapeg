@@ -46,10 +46,10 @@ jobs:
 #       - name: setup pip modules
 #         run: pip install toml
         
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
+#       - name: Set up Python 3.10
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: "3.10"
 #       - name: Install dependencies
 #         run: |
 #           python3 -m pip install --upgrade pip
@@ -58,8 +58,8 @@ jobs:
 #       - name: Display Python version
 #         run: python -c "import sys; print(sys.version)"
  
-      - name: which python
-        run: which python3.10
+#       - name: which python
+#         run: which python3.10
           
       - name: download icapeg files
         uses: actions/download-artifact@v3
@@ -73,12 +73,14 @@ jobs:
       - name: Start  squid proxy
         run: squid
         
-      - name: install python
-        run: pkg install python3
-      - name: which python
-        run: which python3.10
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - run: python my_script.py
+      
       - name: curl
         run: curl  -I http://localhost:3128 
 
-      - name: Test 
-        run: python310 --version
+#       - name: Test 
+#         run: python310 --version
