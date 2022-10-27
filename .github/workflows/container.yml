@@ -32,7 +32,7 @@ jobs:
           ansible/squid.conf
           testing/test_with_squid.py 
        
-  squid_5-4:
+  test_with_squid_5-4:
     runs-on: ubuntu-latest
 
     needs: build
@@ -66,3 +66,110 @@ jobs:
 
       - name: Test 
         run: python ./testing/test_with_squid.py 
+        
+  test_with_squid_5-5:
+    runs-on: ubuntu-latest
+
+    needs: build
+    steps:
+    
+      - name: Setup Python
+        uses: actions/setup-python@v4.1.0
+
+      - name: setup pip modules
+        run: pip install toml
+                
+      - name: download icapeg files
+        uses: actions/download-artifact@v3
+        with:
+         name: icapeg
+         
+      - name: Run Icapeg
+        run: chmod +x ./icapeg && ./icapeg &
+
+      - name: run squid container
+        run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
+        
+      - name: copy squid config file 
+        run : docker cp ansible/squid.conf squid5_proxy:/etc/squid/
+          
+      - name: start squid 
+        run : docker exec squid5_proxy squid && sleep 10
+        
+      - name: check squid
+        run: curl  -I http://localhost:8081
+
+      - name: Test 
+        run: python ./testing/test_with_squid.py 
+        
+  test_with_squid_5-6:
+    runs-on: ubuntu-latest
+
+    needs: build
+    steps:
+    
+      - name: Setup Python
+        uses: actions/setup-python@v4.1.0
+
+      - name: setup pip modules
+        run: pip install toml
+                
+      - name: download icapeg files
+        uses: actions/download-artifact@v3
+        with:
+         name: icapeg
+         
+      - name: Run Icapeg
+        run: chmod +x ./icapeg && ./icapeg &
+
+      - name: run squid container
+        run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
+        
+      - name: copy squid config file 
+        run : docker cp ansible/squid.conf squid5_proxy:/etc/squid/
+          
+      - name: start squid 
+        run : docker exec squid5_proxy squid && sleep 10
+        
+      - name: check squid
+        run: curl  -I http://localhost:8081
+
+      - name: Test 
+        run: python ./testing/test_with_squid.py 
+
+
+  test_with_squid_5-7:
+    runs-on: ubuntu-latest
+
+    needs: build
+    steps:
+    
+      - name: Setup Python
+        uses: actions/setup-python@v4.1.0
+
+      - name: setup pip modules
+        run: pip install toml
+                
+      - name: download icapeg files
+        uses: actions/download-artifact@v3
+        with:
+         name: icapeg
+         
+      - name: Run Icapeg
+        run: chmod +x ./icapeg && ./icapeg &
+
+      - name: run squid container
+        run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
+        
+      - name: copy squid config file 
+        run : docker cp ansible/squid.conf squid5_proxy:/etc/squid/
+          
+      - name: start squid 
+        run : docker exec squid5_proxy squid && sleep 10
+        
+      - name: check squid
+        run: curl  -I http://localhost:8081
+
+      - name: Test 
+        run: python ./testing/test_with_squid.py 
+
