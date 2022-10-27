@@ -74,7 +74,7 @@ jobs:
         run: squid
         
       - name: Install xmllint
-        run: sudo apt-get install -y libxml2-utils
+        run: echo $$
         shell: bash
       - name: curl
         run: curl  -I http://localhost:3128 
