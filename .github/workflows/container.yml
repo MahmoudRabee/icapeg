@@ -39,6 +39,7 @@ jobs:
     container:
       image: shereenfarag/alpine-squid-proxy:squid5
     steps:
+        - shell: bash
     
 #       - name: Setup Python
 #         uses: actions/setup-python@v4.1.0
