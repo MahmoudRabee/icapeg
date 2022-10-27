@@ -1,4 +1,4 @@
-name: container
+name: Test with Squid proxy
 
 on:
   workflow_dispatch:
