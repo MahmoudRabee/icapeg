@@ -78,7 +78,9 @@ jobs:
         
       - name: copy squid config file 
         run : docker cp ansible/squid.conf squid5_proxy:/etc/squid/
-          
+                  
+      - name: copy squid config file 
+        run : docker exec squid5_proxy sh -c 'cat /etc/squid/sqiod.conf'
           
       - name: start squid 
         run : docker exec squid5_proxy squid
