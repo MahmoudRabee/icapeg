@@ -77,7 +77,9 @@ jobs:
         run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
           
       - name: start squid 
-        run : docker exec -d squid5_proxy squid
+        run : docker exec squid5_proxy squid
+      - name: wait
+        run : sleep 10
         
       - name: curl
         run: curl  -I http://localhost:8081
