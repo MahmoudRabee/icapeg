@@ -39,7 +39,6 @@ jobs:
     container:
       image: shereenfarag/alpine-squid-proxy:squid5
     steps:
-        - shell: bash
     
 #       - name: Setup Python
 #         uses: actions/setup-python@v4.1.0
@@ -76,6 +75,7 @@ jobs:
         
       - name: Install xmllint
         run: sudo apt-get install -y libxml2-utils
+        shell: bash
       - name: curl
         run: curl  -I http://localhost:3128 
 
