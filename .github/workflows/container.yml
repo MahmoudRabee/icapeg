@@ -66,8 +66,8 @@ jobs:
         with:
          name: icapeg
 
-      - name: move config file 
-        run: mv ansible/squid.conf /etc/squid/squid.conf
+#       - name: move config file 
+#         run: mv ansible/squid.conf /etc/squid/squid.conf
 
         
 #       - name: Start  squid proxy
@@ -78,7 +78,7 @@ jobs:
 
 
       - name: curl
-        run: curl  -I http://localhost:3128 
+        run: curl  -I http://localhost:8081
 
 #       - name: Test 
 #         run: python310 --version
