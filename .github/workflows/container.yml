@@ -73,15 +73,8 @@ jobs:
       - name: Start  squid proxy
         run: squid
         
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - uses: jannekem/run-python-script-action@v1
-        with:
-          script: |
-            import os
-            print("Directory contents:")
-            for f in os.listdir():
-                print(f)
+      - name: Install xmllint
+        run: sudo apt-get install -y libxml2-utils
       - name: curl
         run: curl  -I http://localhost:3128 
 
