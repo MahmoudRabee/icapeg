@@ -50,7 +50,7 @@ jobs:
          name: icapeg
          
       - name: Run Icapeg
-        run: ./icapeg
+        run: chmod +x ./icapeg && ./icapeg
 
       - name: run squid container
         run : docker run --name squid5_proxy -it -d -p 8081:3128 shereenfarag/alpine-squid-proxy:squid5
